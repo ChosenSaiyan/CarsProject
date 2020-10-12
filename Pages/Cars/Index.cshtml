@@ -1,0 +1,28 @@
+﻿@page
+@model CarsProject.Pages.Cars.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="card-deck">
+    @foreach (var car in Model.CarList)
+    {
+        <div class="card m-3" style="min-width: 18rem; max-width:30.5%">
+            <a asp-page="/Cars/Details" asp-route-ID="@car.Id">
+                <img class="card-img-top" src="@Html.DisplayFor(m => car.ImageUrl)" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h5 class="card-title text-center">@Html.DisplayFor(m => car.Name)</h5>
+                <p class="card-text text-center"><label class="font-weight-bold" asp-for="CarList.FirstOrDefault().Colour"></label>&nbsp @Html.DisplayFor(m => car.Colour)</p>
+                <br />
+                <center>
+                    <div class="btn-group">
+                        <a asp-page="/Cars/Edit" asp-route-ID="@car.Id" class="btn btn-outline-dark justify-content-center">✐Edit</a>
+                        <a asp-page="/Cars/Delete" asp-route-ID="@car.Id" class="btn btn-outline-danger btn-sm">🗑Delete</a>
+                    </div>
+                </center>
+            </div>
+        </div>
+
+    }
+</div>

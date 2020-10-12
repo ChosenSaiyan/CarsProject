@@ -1,0 +1,16 @@
+﻿@page
+@model CarsProject.Pages.Cars.DeleteModel
+@{
+    ViewData["Title"] = "Delete Record";
+}
+
+<div class="text-center">
+    <h2 class="display-">Are you sure you want to delete the car : @Model.Car.Name</h2>
+    <hr>
+    <br />
+
+    <form method="post">
+        <button type="submit" class="btn btn-danger btn-sm" role="button">Confirm</button>
+        <button class="btn btn-dark btn-sm" asp-page="/Cars/Index">Cancel</button>
+    </form>
+</div>
